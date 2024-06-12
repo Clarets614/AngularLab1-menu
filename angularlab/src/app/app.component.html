@@ -1,0 +1,56 @@
+<div class="redoutline">
+<div class="innerwhitebox">
+<h1>Welcome to Platypus Pizza</h1>
+<table class="menu">
+  <tr style="border-bottom: 5px; border-style: solid;border-color: red;">
+    <th class="columntitle">
+      Menu Item
+    </th>
+    <th>
+      Category
+    </th>
+    <th>
+      Price
+    </th>
+    <th>
+      Vegetarian
+    </th>
+  </tr>
+@for (i of menuitems; track $index) {
+<tr>
+  @if(i.soldOut){<td class="soldOut">
+    {{i.name}}
+  </td>}
+  @else {<td>
+    {{i.name}}
+  </td>}
+<td>
+  {{i.category}}
+</td>
+<td> 
+  {{i.price.toLocaleString('en-US',{style:'currency',currency: 'USD'})}}
+</td>
+@if(i.vegetarian){
+  <td>
+   <p>🥦</p> 
+  </td>
+}
+@else{<td>
+  
+</td>}
+@if(i.soldOut){<td>
+  <button disabled ="additem" name="additem" value="Add to Order">Add to Order</button>
+</td>}
+@else {<td>
+  <button onclick="additem" name="additem" value="Add to Order">Add to Order</button>
+</td>}
+
+
+
+</tr>
+
+}
+
+</table>
+</div>
+</div>
