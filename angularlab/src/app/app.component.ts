@@ -10,7 +10,7 @@ import { MenuItem } from './models/menu-item';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title:string = 'Grand Chirpus';
+  title:string = 'Platypus Pizza';
 
   menuitems:MenuItem[] = [
 
@@ -78,5 +78,20 @@ export class AppComponent {
       soldOut: true
     }
 
-  ]
+  ];
+  displayTY:boolean = false;
+  total: number = 0;
+
+  addToOrder(price:number):void{
+    this.total += price;
+    this.displayTY = false;
+    if(this.total == 69){
+      console.log("nice")
+    }
+  }
+
+  resetOrder():void{
+    this.total = 0;
+    this.displayTY= true;
+  }
 }

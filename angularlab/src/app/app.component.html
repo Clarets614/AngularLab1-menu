@@ -1,8 +1,9 @@
 <div class="redoutline">
 <div class="innerwhitebox">
-<h1>Welcome to Platypus Pizza</h1>
+<h1>Welcome to Platypus Pizza🍕
+</h1>
 <table class="menu">
-  <tr style="border-bottom: 5px; border-style: solid;border-color: red;">
+  <tr>
     <th class="columntitle">
       Menu Item
     </th>
@@ -42,7 +43,7 @@
   <button disabled ="additem" name="additem" value="Add to Order">Add to Order</button>
 </td>}
 @else {<td>
-  <button onclick="additem" name="additem" value="Add to Order">Add to Order</button>
+  <button (click)="addToOrder(i.price)">Add to Order</button>
 </td>}
 
 
@@ -52,5 +53,15 @@
 }
 
 </table>
+
+@if(displayTY==true){
+  <p>Thank you for your business!</p>
+}
+@else {
+  <h2>Total: {{total}}</h2>
+}
+<button (click)="resetOrder()">Purchase</button>
+
+
 </div>
 </div>
